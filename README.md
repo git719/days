@@ -2,7 +2,7 @@
 Command line calendar days calculator.
 
 ## Why
-Almost all of these days calculations can of course be done with most Unix `date` commands, or with many other tools. So why a dedicated `days` utility? Because these simple calculations seem to occur very, and having a simple dedicated utility for them is quite handy. Using the `date` command, and.or most other ways, seems to always get to elaborate. For instance, given someone's birth date, you can quickly pop up their age by doing: 
+Almost all of these days calculations can of course be done with most Unix `date` commands, or with many other tools. So why a dedicated `days` utility? Because these simple calculations seem to occur very often, and having a simple dedicated utility for them is quite handy. Using the `date` command, and/or most other ways, always seems too elaborate. But using this utility, one can quickly, for instance, get someone's age by simply doing the following: 
 
 ```
 days 1995-07-14
@@ -10,12 +10,14 @@ days 1995-07-14
 ```
 
 Or maybe there's a need to quickly calculate how many days and years passed between 2 historical dates or years: 
+
 ```
 days 1492-07-01 1776-12-01
 103882 (284 years + 222 days)
 ```
 
 Or maybe one simply needs what the date was X days ago, or what it will be X days into the future: 
+
 ```
 days -342
 2021-10-04
