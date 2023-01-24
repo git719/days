@@ -4,8 +4,8 @@ package main
 
 import (
 	"fmt"
-	"time"
 	"strconv"
+	"time"
 )
 
 func intAbs(val int64) int64 {
@@ -22,14 +22,14 @@ func stringToInt(s string) int64 {
 		panic(err.Error())
 	}
 	return i
-}	
+}
 
 func stringToTime(s string) (time.Time, error) {
 	// Convert Unix epoc seconds string to Time type
-    sec, err := strconv.ParseInt(s, 10, 64)
+	sec, err := strconv.ParseInt(s, 10, 64)
 	if err != nil {
 		return time.Time{}, err
-    }
+	}
 	return time.Unix(sec, 0), nil
 }
 
@@ -39,7 +39,7 @@ func stringDateToEpoc(s string) (int64, error) {
 	if err != nil {
 		panic(err.Error())
 	}
-	return t.Unix(), nil  // Finally, convert Time type to Unix epoc seconds
+	return t.Unix(), nil // Finally, convert Time type to Unix epoc seconds
 }
 
 func isDate(s string) bool {
@@ -94,8 +94,8 @@ func printDaysSinceOrTo(date1 string) {
 	midnight_secs := t.Unix()
 
 	since_midnight := now_secs - midnight_secs
-    epoc1 = epoc1 + since_midnight
-	printDays( (epoc1 - now_secs) / 86400 )
+	epoc1 = epoc1 + since_midnight
+	printDays((epoc1 - now_secs) / 86400)
 }
 
 func printDaysBetween(date1, date2 string) {
@@ -109,10 +109,10 @@ func printDaysBetween(date1, date2 string) {
 		panic(err.Error())
 	}
 	if epoc1 > epoc2 {
-		printDays( (epoc1 - epoc2) / 86400 )
+		printDays((epoc1 - epoc2) / 86400)
 	} else if epoc2 > epoc1 {
-		printDays( (epoc2 - epoc1) / 86400 )
+		printDays((epoc2 - epoc1) / 86400)
 	} else {
-		fmt.Println(0)		
+		fmt.Println(0)
 	}
 }

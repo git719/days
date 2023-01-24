@@ -12,7 +12,7 @@ import (
 const (
 	// Global constants
 	prgname = "days"
-	prgver  = "1"
+	prgver  = "0.0.2"
 )
 
 func printUsage() {
@@ -38,7 +38,7 @@ func main() {
 		if arg1[0:1] == "+" || arg1[0:1] == "-" {
 			printDateInDays(arg1)
 		} else if isDate(arg1) {
-		    printDaysSinceOrTo(arg1)
+			printDaysSinceOrTo(arg1)
 		}
 	case 2:
 		arg1 := os.Args[1]
@@ -46,7 +46,7 @@ func main() {
 		if isDate(arg1) && isDate(arg2) {
 			printDaysBetween(arg1, arg2)
 		}
-    default:
+	default:
 		printUsage()
 	}
 }
