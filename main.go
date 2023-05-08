@@ -1,18 +1,20 @@
 // main.go
 
-// TODO: Check back on 19th Jan 2038 to see if this passes Millenium bug :-)
+// TODO: Check back on 03:14:08 UTC on 19 January 2038, to confirm we're good ;-)
+//       https://en.wikipedia.org/wiki/Year_2038_problem
 
 package main
 
 import (
 	"fmt"
+	"github.com/git719/utl"
 	"os"
 )
 
 const (
 	// Global constants
 	prgname = "days"
-	prgver  = "0.0.2"
+	prgver  = "1.0.1"
 )
 
 func printUsage() {
@@ -36,15 +38,19 @@ func main() {
 	case 1:
 		arg1 := os.Args[1]
 		if arg1[0:1] == "+" || arg1[0:1] == "-" {
-			printDateInDays(arg1)
-		} else if isDate(arg1) {
-			printDaysSinceOrTo(arg1)
+			dateStr := utl.GetDateInDays(arg1)
+			//fmt.Println(dateStr) // Standard format: 2006-01-02 13:50:14 -0500 EST
+			fmt.Println(dateStr.Format("2006-01-02"))
+		} else if utl.ValidDate(arg1, "2006-01-02") {
+			days := utl.GetDaysSinceOrTo(arg1)
+			utl.PrintDays(days)
 		}
 	case 2:
 		arg1 := os.Args[1]
 		arg2 := os.Args[2]
-		if isDate(arg1) && isDate(arg2) {
-			printDaysBetween(arg1, arg2)
+		if utl.ValidDate(arg1, "2006-01-02") && utl.ValidDate(arg2, "2006-01-02") {
+			days := utl.GetDaysBetween(arg1, arg2)
+			utl.PrintDays(days)
 		}
 	default:
 		printUsage()
